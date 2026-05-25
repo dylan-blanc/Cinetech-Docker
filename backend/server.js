@@ -4,7 +4,7 @@ import { fetchTMDB, handleError } from "./hook/fetchTMDB.js";
 
 const app = express();
 
-app.use(cors());
+app.use(cors({ origin: process.env.FRONTEND_URL || "http://localhost:8080" }));
 
 // Films populaires
 app.get("/api/tmdb/movies/popular", async (req, res) => {
@@ -168,6 +168,9 @@ app.get("/api/tmdb/tv/:id/videos", async (req, res) => {
     }
 });
 
-app.listen(3500, () => {
-    console.log("Server démarrer sur le port http://localhost:3500");
+const port = Number.parseInt(process.env.PORT ?? "", 10) || 3500;
+const host = process.env.HOST || "0.0.0.0";
+
+app.listen(port, host, () => {
+    console.log(`Server demarre sur le port http://localhost:${port}`);
 });
