@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 import { createContext, useContext } from "react";
 import { useSearchParams } from "react-router-dom";
 import useFetchAPI from "../hooks/useFetchAPI";
@@ -18,8 +19,8 @@ export function GenresProvider({ children }) {
   // UN SEUL appel API pour les genres
   const genreEndpoint =
     contentType === "tv"
-      ? "http://localhost:3500/api/tmdb/genre/tv/list"
-      : "http://localhost:3500/api/tmdb/genre/movie/list";
+      ? "/api/tmdb/genre/tv/list"
+      : "/api/tmdb/genre/movie/list";
 
   const { data, loading, error } = useFetchAPI({ url: genreEndpoint });
 
