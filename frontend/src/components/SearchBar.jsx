@@ -40,7 +40,7 @@ function SearchBar() {
     };
 
     const handleResultClick = (item) => {
-        // Naviguer vers la page de détail selon le type de média
+    navigate(`/details/${item.media_type}/${item.id}`);
         const type = item.media_type === 'movie' ? 'film' : 'serie';
         navigate(`/${type}/${item.id}`);
         setIsOpen(false);
