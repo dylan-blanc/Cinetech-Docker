@@ -4,6 +4,16 @@ import AutoImport from "unplugin-auto-import/vite";
 
 // https://vite.dev/config/
 export default defineConfig({
+  server: {
+    host: "0.0.0.0",
+    port: 5173,
+    allowedHosts: [
+      "localhost",
+      "dblccinetech.fr",
+      "www.dblccinetech.fr",
+      "*.dblccinetech.fr",
+    ],
+  },
   plugins: [
     react(),
     AutoImport({
