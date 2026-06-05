@@ -1,6 +1,7 @@
 .env
 .env.*
 !.env.example
+/SSL/*
 
 **/node_modules/
 **/dist/
@@ -9,3 +10,4 @@
 .DS_Store
 
 # Test
+# Jest2
