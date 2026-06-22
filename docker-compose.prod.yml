@@ -4,8 +4,17 @@ services:
     build:
       context: ./backend
       target: prod
-    env_file:
-      - ./.env
+    environment:
+      PORT: ${PORT:-3500}
+      HOST: ${HOST:-0.0.0.0}
+      FRONTEND_URL: ${FRONTEND_URL:-https://dblccinetech.fr}
+      BASE_URL: ${BASE_URL:-https://api.themoviedb.org/3}
+      API_TOKEN_FILE: /run/secrets/api_token
+      JWT_TOKEN_FILE: /run/secrets/jwt_token
+      JWT_EXPIRATION: ${JWT_EXPIRATION:-7d}
+    secrets:
+      - api_token
+      - jwt_token
     expose:
       - "3500"
     restart: unless-stopped
@@ -31,3 +40,9 @@ services:
     depends_on:
       - frontend
       - backend
+
+secrets:
+  api_token:
+    file: ./secrets/api_token
+  jwt_token:
+    file: ./secrets/jwt_token

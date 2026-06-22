@@ -1,7 +1,10 @@
 import "dotenv/config";
+import { readFileSync } from "node:fs";
 
 const BASE_URL = process.env.BASE_URL;
-const API_TOKEN = process.env.API_TOKEN;
+const API_TOKEN = process.env.API_TOKEN_FILE
+    ? readFileSync(process.env.API_TOKEN_FILE, "utf8").trim()
+    : process.env.API_TOKEN;
 
 /**
  * Effectue une requête vers l'API TMDB
