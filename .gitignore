@@ -2,6 +2,7 @@
 .env.*
 !.env.example
 /SSL/*
+/secrets/*
 
 **/node_modules/
 **/dist/
