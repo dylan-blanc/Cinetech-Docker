@@ -12,6 +12,9 @@ export default defineConfig({
       "dblccinetech.fr",
       "www.dblccinetech.fr",
       "*.dblccinetech.fr",
+      "molternate.com",
+      "www.molternate.com",
+      "*.molternate.com",
     ],
   },
   plugins: [
@@ -40,5 +43,5 @@ export default defineConfig({
         enabled: true,
       },
     }),
-  ]
+  ],
 });
